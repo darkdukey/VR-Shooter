@@ -40,19 +40,19 @@ namespace ExitGames.SportShooting
             useNonVrPlayerInEditor = false;
 #endif
 
-#if UNITY_STANDALONE
-            if (UnityEngine.XR.XRSettings.loadedDevice == VRDeviceType.Oculus)
-            {             
-                _playerPrefab = _ovrPlayerPrefab;
-            }
-            else if(UnityEngine.XR.XR
-            {            
-                _playerPrefab = _steamVrPlayerPrefab;
-            }
+//#if UNITY_STANDALONE
+//            if (UnityEngine.XR.XRSettings.loadedDevice == VRDeviceType.Oculus)
+//            {             
+//                _playerPrefab = _ovrPlayerPrefab;
+//            }
+//            else if(UnityEngine.XR.XR
+//            {            
+//                _playerPrefab = _steamVrPlayerPrefab;
+//            }
 
-#elif UNITY_HAS_GOOGLEVR && (UNITY_ANDROID || UNITY_EDITOR)
-            _playerPrefab = _googleVrPlayerPrefab;           
-#endif
+//#elif UNITY_HAS_GOOGLEVR && (UNITY_ANDROID || UNITY_EDITOR)
+//            _playerPrefab = _googleVrPlayerPrefab;           
+//#endif
 
             _playerPrefab = _windowsMRPrefab;
             Debug.Log("force use windows MR");

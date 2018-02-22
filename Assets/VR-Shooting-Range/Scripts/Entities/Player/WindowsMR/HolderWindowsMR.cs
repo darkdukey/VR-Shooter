@@ -6,17 +6,24 @@ namespace ExitGames.SportShooting
 {
     public class HolderWindowsMR : Holder
     {
-        [SerializeField]
+        public Transform motionControllers;
         Transform _holderTarget;
-        [SerializeField]
         Transform _lookAtTarget;
 
         protected override void Awake()
         {
             base.Awake();
+
+            _holderTarget = motionControllers.Find("RightController");
+            _lookAtTarget = motionControllers.Find("LeftController");
+
             if (_holderTarget == null || _lookAtTarget == null)
             {
                 Destroy(this);
+            }
+            else
+            {
+                Debug.Log("Found Controllers");
             }
         }
 
