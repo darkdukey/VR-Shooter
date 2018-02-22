@@ -13,18 +13,6 @@ namespace ExitGames.SportShooting
         protected override void Awake()
         {
             base.Awake();
-
-            _holderTarget = motionControllers.Find("RightController");
-            _lookAtTarget = motionControllers.Find("LeftController");
-
-            if (_holderTarget == null || _lookAtTarget == null)
-            {
-                Destroy(this);
-            }
-            else
-            {
-                Debug.Log("Found Controllers");
-            }
         }
 
         void Update()
@@ -32,8 +20,15 @@ namespace ExitGames.SportShooting
             //Syncrhoize transform with target transform
             if (_holderTarget == null || _lookAtTarget == null)
             {
+                _holderTarget = motionControllers.Find("RightController");
+                _lookAtTarget = motionControllers.Find("LeftController");
+            }
+
+            if (_holderTarget == null || _lookAtTarget == null)
+            {
                 return;
             }
+
 
             transform.position = _holderTarget.position;
             transform.rotation = _holderTarget.rotation;
