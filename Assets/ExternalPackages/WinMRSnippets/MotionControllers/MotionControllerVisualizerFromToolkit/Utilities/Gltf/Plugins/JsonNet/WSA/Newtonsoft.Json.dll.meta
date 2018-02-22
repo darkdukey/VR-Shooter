@@ -112,8 +112,8 @@ PluginImporter:
       enabled: 1
       settings:
         CPU: AnyCPU
-        DontProcess: True
-        PlaceholderPath: Assets/WinMRSnippets/MotionControllers/MotionControllerVisualizerFromToolkit/Utilities/Gltf/Plugins/JsonNet/Newtonsoft.Json.dll
+        DontProcess: False
+        PlaceholderPath: 
         SDK: AnySDK
         ScriptingBackend: AnyScriptingBackend
   userData: 

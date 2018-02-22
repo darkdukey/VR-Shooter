@@ -77,20 +77,24 @@ namespace WinMRSnippets
                 Debug.Assert(!animateSystemControllerModel, "if not using controller model, no need to enable animations");
                 animateSystemControllerModel = false; 
             }
+
+        
         }
+
+       
 
 
         private void Start()
         {
-            
+            StartListeners();
         }
 
         private void OnEnable()
         {
-            StartListeners();
+            //StartListeners();
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             StopListeners();
         }
@@ -198,12 +202,15 @@ namespace WinMRSnippets
 
         private void InteractionManager_InteractionSourceUpdated(InteractionSourceUpdatedEventArgs args)
         {
+
+            if (!IsActive && this.handedness == args.state.source.handedness && args.state.source.kind == InteractionSourceKind.Controller )
+            {
+                InitializeSelf(args.state.source);
+            }
+
             if ( IsTarget(args.state) )
             {
-                if (!IsActive)
-                {
-                    InitializeSelf(args.state.source ); 
-                }
+                
 
                 _currentState.ResetDynamicState(); 
 
@@ -261,6 +268,7 @@ namespace WinMRSnippets
 
         void UninitializeSelf(InteractionSource source )
         {
+            Debug.Log("Uninitialzing"); 
             if ( source.id == SourceId)
             {
                 SourceId = defaultValue;
@@ -375,7 +383,11 @@ namespace WinMRSnippets
             if (pose.TryGetAngularVelocity(out angularVelocity))
             {
                 _currentState.AngularVelocity = angularVelocity;
-            }             
+            }
+
+            Debug.Log("Updating pose"); 
+            this.transform.localPosition = _currentState.GripPosition;
+            this.transform.rotation = _currentState.GripRotation; 
         }
 
 
