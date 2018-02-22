@@ -1358,7 +1358,8 @@ MonoBehaviour:
   _hitLayer:
     serializedVersion: 2
     m_Bits: 32
-  _cursorPrefab: {fileID: 100000, guid: 5a7682c244a150b49965c007720bdbb7, type: 2}
+  _cursorPrefab: {fileID: 1860270852230460, guid: 3bb33819fe87e384482e359f7c54dced,
+    type: 2}
 --- !u!114 &114418790740030624
 MonoBehaviour:
   m_ObjectHideFlags: 1

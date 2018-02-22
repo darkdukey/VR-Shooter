@@ -8,9 +8,11 @@ public class OvrController : MonoBehaviour
 
     private void Awake()
     {
+#if !UNITY_WSA
         if (OVRManager.instance == null)
         {
             Instantiate<GameObject>(_ovrServicesPrefab);
         }
+#endif 
     }
 }

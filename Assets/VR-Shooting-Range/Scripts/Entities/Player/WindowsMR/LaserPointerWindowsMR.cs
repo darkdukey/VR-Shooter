@@ -10,7 +10,7 @@ namespace ExitGames.SportShooting
         GameObject _cursorPrefab;
 
         private GameObject _cursor;
-        private Material _material;
+        //private Material _material;
         private MotionControllerState _currentState;
 
         private void StartListeners()
@@ -20,13 +20,20 @@ namespace ExitGames.SportShooting
             InteractionManager.InteractionSourceReleased += InteractionManager_InteractionSourceReleased;
         }
 
+        private void StopListeners()
+        {
+            InteractionManager.InteractionSourceUpdated -= InteractionManager_InteractionSourceUpdated;
+            InteractionManager.InteractionSourcePressed -= InteractionManager_InteractionSourcePressed;
+            InteractionManager.InteractionSourceReleased -= InteractionManager_InteractionSourceReleased;
+        }
+
         protected override void Awake()
         {
             base.Awake();
             if (_cursor == null)
             {
                 _cursor = Instantiate<GameObject>(_cursorPrefab);
-                _material = _cursor.GetComponent<MeshRenderer>().material;
+                //_material = _cursor.GetComponent<MeshRenderer>().material;
             }
         }
 
@@ -41,11 +48,11 @@ namespace ExitGames.SportShooting
 
         private void Start()
         {
-            StartListeners();
         }
 
         void OnEnable()
         {
+            StartListeners();
             if (_cursor != null)
             {
                 _cursor.SetActive(true);
@@ -54,6 +61,7 @@ namespace ExitGames.SportShooting
 
         void OnDisable()
         {
+            StopListeners();
             if (_cursor != null)
             {
                 _cursor.SetActive(false);
@@ -94,7 +102,7 @@ namespace ExitGames.SportShooting
                     Debug.Log("Select pressed");
                     ClickOnHitObject();
                 }
-                _material.SetColor("_Color", Color.red);
+                //_material.SetColor("_Color", Color.red);
             }
         }
 
@@ -103,7 +111,7 @@ namespace ExitGames.SportShooting
             if (isRightController(args.state))
             {
                 UpdatePressed(args.pressType, args.state);
-                _material.SetColor("_Color", Color.white);
+                //_material.SetColor("_Color", Color.white);
             }
         }
 

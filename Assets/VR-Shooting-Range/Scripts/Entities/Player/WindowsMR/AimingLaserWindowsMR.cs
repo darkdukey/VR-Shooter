@@ -16,7 +16,11 @@ namespace ExitGames.SportShooting
             
         }
 
+#if !UNITY_WSA
         private void ToggleLaser(object sender, ClickedEventArgs e)
+#else 
+        private void ToggleLaser() 
+        #endif
         {
             ToggleLaser();
         }

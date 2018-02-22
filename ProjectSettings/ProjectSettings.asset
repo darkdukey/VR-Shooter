@@ -623,11 +623,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: SportShooting
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: 
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: Exit Games
+  metroCertificateIssuer: Exit Games
+  metroCertificateNotAfter: 8088b7fc83cad401
   metroApplicationDescription: SportShooting
   wsaImages: {}
   metroTileShortName: 
@@ -652,8 +652,8 @@ PlayerSettings:
       EnterpriseAuthentication: False
       HumanInterfaceDevice: False
       InputInjectionBrokered: False
-      InternetClient: False
-      InternetClientServer: False
+      InternetClient: True
+      InternetClientServer: True
       Location: False
       Microphone: False
       MusicLibrary: False
@@ -736,7 +736,7 @@ PlayerSettings:
     UNet: 0
     Unity_Ads: 0
   facebookSdkVersion: 7.9.1
-  apiCompatibilityLevel: 3
+  apiCompatibilityLevel: 2
   cloudProjectId: 
   projectName: 
   organizationId: 

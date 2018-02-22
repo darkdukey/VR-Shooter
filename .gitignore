@@ -39,3 +39,5 @@ sysinfo.txt
 /UWP
 *WSATestCertificate.pfx
 *WSATestCertificate.pfx.meta
+
+Build*/
