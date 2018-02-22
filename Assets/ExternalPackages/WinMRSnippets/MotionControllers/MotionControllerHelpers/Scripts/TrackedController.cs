@@ -184,7 +184,6 @@ namespace WinMRSnippets
 
         private void InteractionManager_InteractionSourceLost(InteractionSourceLostEventArgs args)
         {
-            Debug.Log("Controller Source Lost");
             if ( args.state.source.kind == InteractionSourceKind.Controller && args.state.source.handedness == this.handedness )
             {
 #if TRACING_VERBOSE
@@ -268,7 +267,6 @@ namespace WinMRSnippets
 
         void UninitializeSelf(InteractionSource source )
         {
-            Debug.Log("Uninitialzing"); 
             if ( source.id == SourceId)
             {
                 SourceId = defaultValue;
@@ -385,7 +383,6 @@ namespace WinMRSnippets
                 _currentState.AngularVelocity = angularVelocity;
             }
 
-            Debug.Log("Updating pose"); 
             this.transform.localPosition = _currentState.GripPosition;
             this.transform.rotation = _currentState.GripRotation; 
         }
@@ -422,7 +419,6 @@ namespace WinMRSnippets
         }  
         private void InteractionManager_InteractionSourcePressed(InteractionSourcePressedEventArgs args)
         {
-            Debug.Log("Controller Pressed");
             if (IsTarget(args.state))
             {
                 UpdatePressed (args.pressType, args.state );
@@ -431,7 +427,6 @@ namespace WinMRSnippets
 
         private void InteractionManager_InteractionSourceReleased(InteractionSourceReleasedEventArgs args)
         {
-            Debug.Log("Controller Released");
             if ( IsTarget(args.state)) 
             {
                 UpdatePressed (args.pressType, args.state );
