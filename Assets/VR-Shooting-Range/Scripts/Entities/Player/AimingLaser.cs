@@ -34,7 +34,7 @@ namespace ExitGames.SportShooting
             }
         }
 
-        protected void ToggleLaser()
+        protected virtual void ToggleLaser()
         {
             _lineRenderer.enabled = !_lineRenderer.enabled;            
         }

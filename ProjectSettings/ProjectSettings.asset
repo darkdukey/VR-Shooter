@@ -627,7 +627,7 @@ PlayerSettings:
   metroCertificatePassword: 
   metroCertificateSubject: Exit Games
   metroCertificateIssuer: Exit Games
-  metroCertificateNotAfter: 8088b7fc83cad401
+  metroCertificateNotAfter: 800543dfcecbd401
   metroApplicationDescription: SportShooting
   wsaImages: {}
   metroTileShortName: 
